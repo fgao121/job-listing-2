@@ -8,7 +8,8 @@ class JobsController < ApplicationController
     when 'by_upper_bound'
       Job.published.order('wage_upper_bound DESC')
     else
-      Job.published.recent    
+      Job.published.recent
+    end 
   end
 
   def new
@@ -56,5 +57,4 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
   end
-
 end
